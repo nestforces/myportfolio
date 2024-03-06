@@ -216,12 +216,12 @@ const IndexPortfolio = () => {
             <Text fontSize='4xl' textColor='white' textAlign='center' fontWeight='bold' fontStyle='italic'>Skills</Text>
             <Grid w='100%' templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(5, 1fr)' }} >
                 <Box boxSize='100px'  margin={'auto'}>
-                    <Canvas camera={{ position: [0, 0, 100], fov: 75 }} style={{ margin: 0, padding: 0 }}>
+                    <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
                         <ThreeScene imageSrc={htmllogo} />
                     </Canvas>
                 </Box>
                 <Box boxSize='100px'   margin={'auto'}>
-                    <Canvas camera={{ position: [0, 0, 100], fov: 75 }} style={{ margin: 0, padding: 0 }}>
+                    <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
                         <ThreeScene imageSrc={csslogo} />
                     </Canvas>
                 </Box>
