@@ -13,7 +13,7 @@ import typescriptlogo from '../assets/typescript.png';
 
 import * as THREE from 'three';
 import { Canvas, useFrame, extend, useThree } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/fiber';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { useRef, useState } from 'react';
 
 
