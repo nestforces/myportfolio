@@ -131,7 +131,7 @@ const IndexPortfolio = () => {
 
     const handleSubmitContactMe = () => {
         const subject = 'Message from Portfolio';
-        const body = `Name: ${name}\nEmail: ${email}\nMessage: \n${message} />`;
+        const body = `Name: ${name}\nEmail: ${email}\nMessage: \n${message}`;
         
         // Properly encode subject and body
         const encodedSubject = encodeURIComponent(subject);
