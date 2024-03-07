@@ -81,7 +81,7 @@ const SphereWithImage = ({ imageSrc, error, setError }) => {
                <Canvas 
                frameloop="demand"
                shadows
-               camera={{ position: [20, 3, 5], fov: 25 }}
+               camera={{ position: [0, 0, 100], fov: 75 }}
                gl={{ preserveDrawingBuffer: true, alpha: true }}>
                  <ThreeScene imageSrc={`${logo}`} error={error} setError={setError} />
                </Canvas>
