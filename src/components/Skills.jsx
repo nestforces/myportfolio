@@ -63,12 +63,12 @@ const SphereWithImage = ({ imageSrc }) => {
            <Text fontSize='4xl' textColor='white' textAlign='center' fontWeight='bold' fontStyle='italic'>Skills</Text>
            {htmllogo ? (
                    <Grid w='100%' templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(5, 1fr)' }}>
-                       <Box zIndex={-99} position='fixed' boxSize='100px' margin='auto'>
+                       <Box boxSize='100px' margin='auto'>
                <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
                  <ThreeScene imageSrc={homemacgroceria} />
                </Canvas>
              </Box>
-             <Box zIndex={-99} position='fixed' boxSize='100px' margin='auto'>
+             <Box boxSize='100px' margin='auto'>
                <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
                  <ThreeScene imageSrc={productmacgroceria} />
                </Canvas>
