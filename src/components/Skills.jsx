@@ -14,7 +14,7 @@ import typescriptlogo from '../assets/typescript.png';
 import * as THREE from 'three';
 import { Canvas, useFrame, extend, useThree } from '@react-three/fiber';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 
 extend({ OrbitControls });
@@ -67,11 +67,27 @@ const BallWithImage = ({ imageSrc }) => {
 
 
 const Skills = () => {
+    const [imagesLoaded, setImagesLoaded] = useState(false);
+
+    useEffect(() => {
+        const imagePromises = [htmllogo, csslogo, javascriptlogo, typescriptlogo, javalogo, reactlogo, nodelogo, kotlinlogo, chakrauilogo, mysqllogo].map((imageSrc) => {
+        return new Promise((resolve) => {
+            const image = new Image();
+            image.src = imageSrc;
+            image.onload = resolve;
+        });
+        });
+
+        Promise.all(imagePromises)
+            .then(() => setImagesLoaded(true))
+            .catch((error) => console.error('Error loading images:', error));
+        }, []);
 
     return (
         <>
          <Box bgGradient='linear(to-b, #222222, #802a5e)' p={{ base: '50px', md:'20px' }} mt='50px'>
             <Text fontSize='4xl' textColor='white' textAlign='center' fontWeight='bold' fontStyle='italic'>Skills</Text>
+            {imagesLoaded && (
             <Grid w='100%' templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(5, 1fr)' }} >
             <Box boxSize='100px'   margin={'auto'}>
                     <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
@@ -120,6 +136,7 @@ const Skills = () => {
                     </Canvas>
                 </Box>
             </Grid>
+            )}
             </Box>
         </>
     )
