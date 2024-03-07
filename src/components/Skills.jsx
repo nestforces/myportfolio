@@ -14,30 +14,34 @@ import typescriptlogo from '../assets/typescript.png';
 import * as THREE from 'three';
 import { Canvas, useFrame, extend, useThree } from '@react-three/fiber';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { useRef, useState, useEffect, } from 'react';
+import { useRef, useEffect, } from 'react';
 
 
 extend({ OrbitControls });
 
-
-
-const BallWithImage = ({ imageSrc }) => {
+  const BallWithImage = ({ imageSrc }) => {
     const textureLoader = new THREE.TextureLoader();
-    const texture = textureLoader.load(imageSrc);
+    const texture = useRef(null);
     const meshRef = useRef();
-
+  
     const pointLight = new THREE.PointLight(0xffffff, 1, 100);
     pointLight.position.set(0, 0, 50);
-
+  
+    useEffect(() => {
+      textureLoader.load(imageSrc, (loadedTexture) => {
+        texture.current = loadedTexture;
+      });
+    }, [imageSrc]);
+  
     useFrame(() => {
-        // Rotate the ball around the y-axis
-        meshRef.current.rotation.y += 0.01;
+      // Rotate the ball around the y-axis
+      meshRef.current.rotation.y += 0.01;
     });
   
     return (
-        <mesh ref={meshRef}>
+      <mesh ref={meshRef}>
         <sphereGeometry args={[50, 32, 32]} />
-        <meshBasicMaterial attach="material" map={texture}/>
+        <meshBasicMaterial attach="material" map={texture.current} />
         {/* Adjust the position of the mesh to be in front of the ball */}
         <pointLight args={[pointLight.color.getStyle(), pointLight.intensity, pointLight.distance]} />
       </mesh>
@@ -67,27 +71,11 @@ const BallWithImage = ({ imageSrc }) => {
 
 
 const Skills = () => {
-    const [imagesLoaded, setImagesLoaded] = useState(false);
-
-    useEffect(() => {
-        const imagePromises = [htmllogo, csslogo, javascriptlogo, typescriptlogo, javalogo, reactlogo, nodelogo, kotlinlogo, chakrauilogo, mysqllogo].map((imageSrc) => {
-        return new Promise((resolve) => {
-            const image = new Image();
-            image.src = imageSrc;
-            image.onload = resolve;
-        });
-        });
-
-        Promise.all(imagePromises)
-            .then(() => setImagesLoaded(true))
-            .catch((error) => console.error('Error loading images:', error));
-        }, []);
 
     return (
         <>
          <Box bgGradient='linear(to-b, #222222, #802a5e)' p={{ base: '50px', md:'20px' }} mt='50px'>
             <Text fontSize='4xl' textColor='white' textAlign='center' fontWeight='bold' fontStyle='italic'>Skills</Text>
-            {imagesLoaded && (
             <Grid w='100%' templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(5, 1fr)' }} >
             <Box boxSize='100px'   margin={'auto'}>
                     <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
@@ -136,7 +124,6 @@ const Skills = () => {
                     </Canvas>
                 </Box>
             </Grid>
-            )}
             </Box>
         </>
     )
