@@ -83,16 +83,7 @@ const Skills = () => {
                         <ThreeScene imageSrc={csslogo} />
                     </Canvas>
                 </Box>
-                <Box boxSize='100px'   margin={'auto'}>
-                    <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
-                        <ThreeScene imageSrc={htmllogo} />
-                    </Canvas>
-                </Box>
-                <Box boxSize='100px'   margin={'auto'}>
-                    <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
-                        <ThreeScene imageSrc={csslogo} />
-                    </Canvas>
-                </Box>
+                
                 <Box boxSize='100px'   margin={'auto'}>
                     <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
                         <ThreeScene imageSrc={javascriptlogo} />
@@ -127,6 +118,16 @@ const Skills = () => {
                 </Box><Box boxSize='100px'   margin={'auto'}>
                     <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
                         <ThreeScene imageSrc={mysqllogo} />
+                    </Canvas>
+                </Box>
+                <Box boxSize='100px'   margin={'auto'}>
+                    <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
+                        <ThreeScene imageSrc={htmllogo} />
+                    </Canvas>
+                </Box>
+                <Box boxSize='100px'   margin={'auto'}>
+                    <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
+                        <ThreeScene imageSrc={csslogo} />
                     </Canvas>
                 </Box>
             </Grid>
