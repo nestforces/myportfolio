@@ -29,10 +29,10 @@ const BallWithImage = ({ imageSrc }) => {
     const pointLight = new THREE.PointLight(0xffffff, 1, 100);
     pointLight.position.set(0, 0, 50);
 
-    useFrame(() => {
-        // Rotate the ball around the y-axis
-        meshRef.current.rotation.y += 0.01;
-    });
+    // useFrame(() => {
+    //     // Rotate the ball around the y-axis
+    //     meshRef.current.rotation.y += 0.01;
+    // });
   
     return (
         <mesh ref={meshRef}>
@@ -86,7 +86,7 @@ const Skills = () => {
                     </Grid>
                     ) : (
                     <Text>Loading in desktop</Text>
-            )}
+                    )}
             </Box>
         </>
     )
