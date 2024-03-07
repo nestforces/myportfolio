@@ -44,7 +44,7 @@ const IndexPortfolio = () => {
 
     return (
         <>
-        <Box css={{ scrollbarWidth: 'none', '&::-webkit-scrollbar': { display: 'none', }, }} style={{ msOverflowStyle: 'none' }}  bgColor='#111111' height='full' width='100vw'>
+        <Box css={{ scrollbarWidth: 'none', '&::-webkit-scrollbar': { display: 'none', }, }} style={{ msOverflowStyle: 'none' }}  bgColor='#222222' height='full' width='100vw'>
             <Box top={0} position='fixed' width='full' zIndex={99} bgColor='#8e1050'>
             <Flex pt='20px' pb='20px' pl='50px' pr='50px' flexDirection='row'>
                 <Box onClick={() => setIsDrawerOpen(true)} color='white' cursor='pointer' ml='-30px' mr='10px' display={{ base: 'block', md: 'none' }}><IconMenu2 /></Box>
@@ -63,8 +63,8 @@ const IndexPortfolio = () => {
                 </Box>
             </Flex>
             </Box>
-        <Box bgColor='#111111' p={{base: '0px', md:'0px', sm:'50px'}}>
-        <Box mt='70px' bgColor='#111111'>
+        <Box bgColor='#222222' p={{base: '0px', md:'0px', sm:'50px'}}>
+        <Box mt='70px' bgColor='#222222'>
             <AnimatedSection>
             <Box ref={homeRef}><Home /></Box>
             </AnimatedSection>
