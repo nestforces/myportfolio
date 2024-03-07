@@ -19,13 +19,14 @@ import { useRef, useState } from 'react';
 
 extend({ OrbitControls });
 
+
 const SphereWithImage = ({ imageSrc, error, setError }) => {
     const textureLoader = new THREE.TextureLoader();
     const texture = textureLoader.load(imageSrc, (texture) => {
+      // Do nothing
+    }, (err) => {
       // If the image fails to load, set the error state to true
-      if (texture === undefined) {
-        setError(true);
-      }
+      setError(true);
     });
     const meshRef = useRef();
   
