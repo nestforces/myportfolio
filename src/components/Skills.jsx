@@ -78,7 +78,11 @@ const SphereWithImage = ({ imageSrc, error, setError }) => {
                        {[htmllogo, csslogo, javascriptlogo, typescriptlogo, javalogo, reactlogo, nodelogo, kotlinlogo, chakrauilogo, mysqllogo].map(
            (logo, index) => (
              <Box key={index} boxSize='100px' margin='auto'>
-               <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
+               <Canvas 
+               frameloop="demand"
+               shadows
+               camera={{ position: [20, 3, 5], fov: 25 }}
+               gl={{ preserveDrawingBuffer: true, alpha: true }}>
                  <ThreeScene imageSrc={`${logo}`} error={error} setError={setError} />
                </Canvas>
              </Box>
