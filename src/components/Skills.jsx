@@ -75,59 +75,48 @@ const Skills = () => {
             <Grid w='100%' templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(5, 1fr)' }} >
             <Box boxSize='100px'   margin={'auto'}>
                     <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
-                        <ThreeScene imageSrc={htmllogo} />
+                        <ThreeScene imageSrc={`${htmllogo}`} />
                     </Canvas>
                 </Box>
                 <Box boxSize='100px'   margin={'auto'}>
                     <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
-                        <ThreeScene imageSrc={csslogo} />
-                    </Canvas>
-                </Box>
-                
-                <Box boxSize='100px'   margin={'auto'}>
-                    <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
-                        <ThreeScene imageSrc={javascriptlogo} />
+                        <ThreeScene imageSrc={`${csslogo}`} />
                     </Canvas>
                 </Box>
                 <Box boxSize='100px'   margin={'auto'}>
                     <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
-                        <ThreeScene imageSrc={typescriptlogo} />
+                        <ThreeScene imageSrc={`${javascriptlogo}`} />
                     </Canvas>
                 </Box>
                 <Box boxSize='100px'   margin={'auto'}>
                     <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
-                        <ThreeScene imageSrc={javalogo} />
+                        <ThreeScene imageSrc={`${typescriptlogo}`} />
                     </Canvas>
                 </Box>
                 <Box boxSize='100px'   margin={'auto'}>
                     <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
-                        <ThreeScene imageSrc={reactlogo} />
+                        <ThreeScene imageSrc={`${javalogo}`} />
+                    </Canvas>
+                </Box>
+                <Box boxSize='100px'   margin={'auto'}>
+                    <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
+                        <ThreeScene imageSrc={`${reactlogo}`} />
                     </Canvas>
                 </Box><Box boxSize='100px'   margin={'auto'}>
                     <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
-                        <ThreeScene imageSrc={nodelogo} />
+                        <ThreeScene imageSrc={`${nodelogo}`} />
                     </Canvas>
                 </Box><Box boxSize='100px'   margin={'auto'}>
                     <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
-                        <ThreeScene imageSrc={kotlinlogo} />
+                        <ThreeScene imageSrc={`${kotlinlogo}`} />
                     </Canvas>
                 </Box><Box boxSize='100px'   margin={'auto'}>
                     <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
-                        <ThreeScene imageSrc={chakrauilogo} />
+                        <ThreeScene imageSrc={`${chakrauilogo}`} />
                     </Canvas>
                 </Box><Box boxSize='100px'   margin={'auto'}>
                     <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
-                        <ThreeScene imageSrc={mysqllogo} />
-                    </Canvas>
-                </Box>
-                <Box boxSize='100px'   margin={'auto'}>
-                    <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
-                        <ThreeScene imageSrc={htmllogo} />
-                    </Canvas>
-                </Box>
-                <Box boxSize='100px'   margin={'auto'}>
-                    <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
-                        <ThreeScene imageSrc={csslogo} />
+                        <ThreeScene imageSrc={`${mysqllogo}`} />
                     </Canvas>
                 </Box>
             </Grid>
