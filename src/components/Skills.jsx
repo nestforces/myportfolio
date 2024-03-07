@@ -14,14 +14,19 @@ import typescriptlogo from '../assets/typescript.png';
 import * as THREE from 'three';
 import { Canvas, useFrame, extend, useThree } from '@react-three/fiber';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 
 extend({ OrbitControls });
 
-const SphereWithImage = ({ imageSrc }) => {
+const SphereWithImage = ({ imageSrc, error, setError }) => {
     const textureLoader = new THREE.TextureLoader();
-    const texture = textureLoader.load(imageSrc);
+    const texture = textureLoader.load(imageSrc, (texture) => {
+      // If the image fails to load, set the error state to true
+      if (texture === undefined) {
+        setError(true);
+      }
+    });
     const meshRef = useRef();
   
     useFrame(() => {
@@ -37,7 +42,7 @@ const SphereWithImage = ({ imageSrc }) => {
     );
   };
   
-  const ThreeScene = ({ imageSrc }) => {
+  const ThreeScene = ({ imageSrc, error }) => {
     const { camera, gl } = useThree();
     const orbitControlsRef = useRef();
   
@@ -47,15 +52,22 @@ const SphereWithImage = ({ imageSrc }) => {
   
     camera.position.set(100, 0, 0);
   
+    // If there is an error, return null to prevent the sphere from rendering
+    if (error) {
+      return null;
+    }
+  
     return (
       <>
-        <SphereWithImage imageSrc={imageSrc} />
+        <SphereWithImage imageSrc={imageSrc} error={error} setError={null} />
         <orbitControls enableZoom={false} ref={orbitControlsRef} args={[camera, gl.domElement]} />
       </>
     );
   };
   
   const Skills = () => {
+    const [error, setError] = useState(false);
+
     return (
         <>
         <Box bgGradient='linear(to-b, #222222, #802a5e)' p={{ base: '50px', md:'20px' }} mt='50px'>
@@ -66,7 +78,7 @@ const SphereWithImage = ({ imageSrc }) => {
            (logo, index) => (
              <Box key={index} boxSize='100px' margin='auto'>
                <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
-                 <ThreeScene imageSrc={`${logo}`} />
+                 <ThreeScene imageSrc={`${logo}`} error={error} setError={setError} />
                </Canvas>
              </Box>
            )
