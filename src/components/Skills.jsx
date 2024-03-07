@@ -14,20 +14,14 @@ import typescriptlogo from '../assets/typescript.png';
 import * as THREE from 'three';
 import { Canvas, useFrame, extend, useThree } from '@react-three/fiber';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 
 
 extend({ OrbitControls });
 
-
-const SphereWithImage = ({ imageSrc, error, setError }) => {
+const SphereWithImage = ({ imageSrc }) => {
     const textureLoader = new THREE.TextureLoader();
-    const texture = textureLoader.load(imageSrc, (texture) => {
-      // Do nothing
-    }, (err) => {
-      // If the image fails to load, set the error state to true
-      setError(true);
-    });
+    const texture = textureLoader.load(imageSrc);
     const meshRef = useRef();
   
     useFrame(() => {
@@ -43,7 +37,7 @@ const SphereWithImage = ({ imageSrc, error, setError }) => {
     );
   };
   
-  const ThreeScene = ({ imageSrc, error }) => {
+  const ThreeScene = ({ imageSrc }) => {
     const { camera, gl } = useThree();
     const orbitControlsRef = useRef();
   
@@ -53,22 +47,15 @@ const SphereWithImage = ({ imageSrc, error, setError }) => {
   
     camera.position.set(100, 0, 0);
   
-    // If there is an error, return null to prevent the sphere from rendering
-    if (error) {
-      return null;
-    }
-  
     return (
       <>
-        <SphereWithImage imageSrc={imageSrc} error={error} setError={null} />
+        <SphereWithImage imageSrc={imageSrc} />
         <orbitControls enableZoom={false} ref={orbitControlsRef} args={[camera, gl.domElement]} />
       </>
     );
   };
   
   const Skills = () => {
-    const [error, setError] = useState(false);
-
     return (
         <>
         <Box bgGradient='linear(to-b, #222222, #802a5e)' p={{ base: '50px', md:'20px' }} mt='50px'>
@@ -78,12 +65,8 @@ const SphereWithImage = ({ imageSrc, error, setError }) => {
                        {[htmllogo, csslogo, javascriptlogo, typescriptlogo, javalogo, reactlogo, nodelogo, kotlinlogo, chakrauilogo, mysqllogo].map(
            (logo, index) => (
              <Box key={index} boxSize='100px' margin='auto'>
-               <Canvas 
-               frameloop="demand"
-               shadows
-               camera={{ position: [0, 0, 100], fov: 75 }}
-               gl={{ preserveDrawingBuffer: true, alpha: true }}>
-                 <ThreeScene imageSrc={`${logo}`} error={error} setError={setError} />
+               <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
+                 <ThreeScene imageSrc={`${logo}`} />
                </Canvas>
              </Box>
            )
