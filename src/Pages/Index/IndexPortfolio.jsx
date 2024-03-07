@@ -222,7 +222,7 @@ const IndexPortfolio = () => {
             <Grid w='100%' templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(5, 1fr)' }} >
                 <Box boxSize='100px'  margin={'auto'}>
                     <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
-                        <ThreeScene imageSrc={htmllogo} />
+                        <ThreeScene imageSrc={javascriptlogo} />
                     </Canvas>
                 </Box>
                 <Box boxSize='100px'   margin={'auto'}>
@@ -232,7 +232,7 @@ const IndexPortfolio = () => {
                 </Box>
                 <Box boxSize='100px'   margin={'auto'}>
                     <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
-                        <ThreeScene imageSrc={javascriptlogo} />
+                        <ThreeScene imageSrc={htmllogo} />
                     </Canvas>
                 </Box>
                 <Box boxSize='100px'   margin={'auto'}>
