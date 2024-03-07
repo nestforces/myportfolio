@@ -131,11 +131,16 @@ const IndexPortfolio = () => {
 
     const handleSubmitContactMe = () => {
         const subject = 'Message from Portfolio';
-        const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0AMessage: ${message}`;
-        const mailToLink = `mailto:maulanamahfud2113@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
+        const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0AMessage: %0D%0A${message}`;
+        
+        // Properly encode subject and body
+        const encodedSubject = encodeURIComponent(subject);
+        const encodedBody = encodeURIComponent(body);
+    
+        const mailToLink = `mailto:maulanamahfud2113@gmail.com?subject=${encodedSubject}&body=${encodedBody}`;
+    
         window.location.href = mailToLink;
-    } 
+    }
 
     return (
         <>
