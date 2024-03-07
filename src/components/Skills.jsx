@@ -9,8 +9,7 @@ import kotlinlogo from '../assets/kotlin.png';
 import mysqllogo from '../assets/mysql.png';
 import reactlogo from '../assets/react.png';
 import typescriptlogo from '../assets/typescript.png';
-import homemacgroceria from '../assets/Macbook-Air-localhost (3).png';
-import productmacgroceria from '../assets/Macbook-Air-localhost (2).png';
+
 
 import * as THREE from 'three';
 import { Canvas, useFrame, extend, useThree } from '@react-three/fiber';
@@ -55,37 +54,33 @@ const SphereWithImage = ({ imageSrc }) => {
       </>
     );
   };
+
+  const logos = [
+    htmllogo, csslogo, javascriptlogo, typescriptlogo, 
+    javalogo, reactlogo, nodelogo, kotlinlogo, 
+    chakrauilogo, mysqllogo
+  ];
+  
+  const names = [
+    'HTML', 'CSS', 'Javascript', 'Typescript', 
+    'Java', 'React', 'Node', 'Kotlin', 'Chakra UI', 'MySql'
+  ];
   
   const Skills = () => {
     return (
         <>
         <Box bgGradient='linear(to-b, #222222, #802a5e)' p={{ base: '50px', md:'20px' }} mt='50px'>
            <Text fontSize='4xl' textColor='white' textAlign='center' fontWeight='bold' fontStyle='italic'>Skills</Text>
-           {htmllogo ? (
-                   <Grid w='100%' templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(5, 1fr)' }}>
-                       <Box boxSize='100px' margin='auto'>
-               <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
-                 <ThreeScene imageSrc={homemacgroceria} />
-               </Canvas>
-             </Box>
-             <Box boxSize='100px' margin='auto'>
-               <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
-                 <ThreeScene imageSrc={productmacgroceria} />
-               </Canvas>
-             </Box>
-                       {[htmllogo, csslogo, javascriptlogo, typescriptlogo, javalogo, reactlogo, nodelogo, kotlinlogo, chakrauilogo, mysqllogo].map(
-           (logo, index) => (
-             <Box key={index} boxSize='100px' margin='auto'>
-               <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
-                 <ThreeScene imageSrc={`${logo}`} />
-               </Canvas>
-             </Box>
-           )
-         )}
-                   </Grid>
-                   ) : (
-                   <Text>Loading in desktop</Text>
-                   )}
+           <Grid mb='30px' w='100%' rowGap='30px' templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(5, 1fr)' }}>
+                {logos.map((logo, index) => (
+                    <Box key={index} boxSize='100px' margin='auto'>
+                        <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
+                            <ThreeScene imageSrc={`${logo}`} />
+                        </Canvas>
+                        <Text textAlign='center' textColor='white'>{names[index]}</Text>
+                    </Box>
+                ))}
+            </Grid>
            </Box>
        </>
     );
