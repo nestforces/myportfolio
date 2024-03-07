@@ -7,6 +7,7 @@ import AboutMe from "../../components/AboutMe";
 import Skills from "../../components/Skills";
 import Projects from "../../components/Projects";
 import ContactMe from "../../components/ContactMe";
+import SkillsCard from "../../components/SkillsCard";
 
 const AnimatedSection = ({ children }) => {
   const [ref, inView] = useInView({
@@ -72,7 +73,7 @@ const IndexPortfolio = () => {
             <Box ref={aboutMeRef}><AboutMe /></Box>
             </AnimatedSection>
             <AnimatedSection>
-               <Box ref={skillsRef}><Skills /></Box>
+               <Box ref={skillsRef}><Box display={{base: 'none', md: 'block'}}><Skills /></Box><Box display={{base: 'block', md: 'none'}}><SkillsCard /></Box></Box>
             </AnimatedSection>
             <Box ref={projectsRef}><Projects /></Box>
             <Box ref={contactMeRef}><ContactMe /></Box>
