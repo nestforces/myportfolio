@@ -131,7 +131,7 @@ const IndexPortfolio = () => {
 
     const handleSubmitContactMe = () => {
         const subject = 'Message from Portfolio';
-        const body = `Name: ${name}\nEmail: ${email}\nMessage: \n<div dangerouslySetInnerHTML={{ __html: ${message} }} />`;
+        const body = `Name: ${name}\nEmail: ${email}\nMessage: \n${message} />`;
         
         // Properly encode subject and body
         const encodedSubject = encodeURIComponent(subject);
@@ -140,6 +140,9 @@ const IndexPortfolio = () => {
         const mailToLink = `mailto:maulanamahfud2113@gmail.com?subject=${encodedSubject}&body=${encodedBody}`;
     
         window.location.href = mailToLink;
+        setName(null);
+        setEmail(null);
+        setMessage(null);
     }
 
     return (
@@ -377,7 +380,8 @@ const IndexPortfolio = () => {
                                 <Text mb='30px' fontSize='xl' textColor='white' fontWeight='bold'>SAY SOMETHING</Text>
                                 <Input value={name} onChange={(e) => setName(e.target.value)} type='text' textColor='white' _placeholder={{color: 'white'}} mb='10px'  width='full' placeholder='Your Name...' />
                                 <Input value={email} onChange={(e) => setEmail(e.target.value)} type='text' textColor='white' _placeholder={{color: 'white'}} mb='10px' placeholder='Your Email...'/>
-                                <Box width={{ base: '100%', md: '500px'}}><ReactQuill value={message} onChange={(value) => setMessage(value)} theme='snow' style={{ backgroundColor: 'white', marginBottom: '10px', borderRadius: '10px', }}  placeholder='Message...' /></Box>
+{/*                                 <Box width={{ base: '100%', md: '500px'}}><ReactQuill value={message} onChange={(value) => setMessage(value)} theme='snow' style={{ backgroundColor: 'white', marginBottom: '10px', borderRadius: '10px', }}  placeholder='Message...' /></Box> */}
+                                <Textarea height='200px' mb='10px' value={message} onChange={(e) => setMessage(e.target.value)} type='text' textColor='white' _placeholder={{color: 'white'}} mb='10px' placeholder='Your Message...'/>
                                 <Button onClick={() => handleSubmitContactMe()} isDisabled={name && email && message ? false : true} width='full' bgGradient="linear(to-r, #b686e8, #bc3876)" textColor='white'>SEND</Button>
                         </Box>
                     </Box>
