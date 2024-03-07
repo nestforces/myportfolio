@@ -19,79 +19,66 @@ import { useRef } from 'react';
 
 extend({ OrbitControls });
 
-
-
-const BallWithImage = ({ imageSrc }) => {
+const SphereWithImage = ({ imageSrc }) => {
     const textureLoader = new THREE.TextureLoader();
     const texture = textureLoader.load(imageSrc);
     const meshRef = useRef();
-
-    const pointLight = new THREE.PointLight(0xffffff, 1, 100);
-    pointLight.position.set(0, 0, 50);
-
+  
     useFrame(() => {
-        // Rotate the ball around the y-axis
-        meshRef.current.rotation.y += 0.01;
+      // Rotate the ball around the y-axis
+      meshRef.current.rotation.y += 0.01;
     });
   
     return (
-        <mesh ref={meshRef}>
+      <mesh ref={meshRef}>
         <sphereGeometry args={[50, 32, 32]} />
-        <meshBasicMaterial attach="material" map={texture}/>
-        {/* Adjust the position of the mesh to be in front of the ball */}
-        <pointLight args={[pointLight.color.getStyle(), pointLight.intensity, pointLight.distance]} />
+        <meshBasicMaterial attach="material" map={texture} />
       </mesh>
     );
   };
   
-  
   const ThreeScene = ({ imageSrc }) => {
     const { camera, gl } = useThree();
     const orbitControlsRef = useRef();
-
+  
     useFrame(() => {
       orbitControlsRef.current.update();
     });
   
     camera.position.set(100, 0, 0);
-
-  return (
-    <>
-      <BallWithImage imageSrc={imageSrc} />
-      <orbitControls enableZoom={false} ref={orbitControlsRef} args={[camera, gl.domElement]} />
-    </>
+  
+    return (
+      <>
+        <SphereWithImage imageSrc={imageSrc} />
+        <orbitControls enableZoom={false} ref={orbitControlsRef} args={[camera, gl.domElement]} />
+      </>
+    );
+  };
+  
+  const Skills = () => {
+    return (
+        <>
+        <Box bgGradient='linear(to-b, #222222, #802a5e)' p={{ base: '50px', md:'20px' }} mt='50px'>
+           <Text fontSize='4xl' textColor='white' textAlign='center' fontWeight='bold' fontStyle='italic'>Skills</Text>
+           {htmllogo ? (
+                   <Grid w='100%' templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(5, 1fr)' }}>
+                       {[htmllogo, csslogo, javascriptlogo, typescriptlogo, javalogo, reactlogo, nodelogo, kotlinlogo, chakrauilogo, mysqllogo].map(
+           (logo, index) => (
+             <Box key={index} boxSize='100px' margin='auto'>
+               <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
+                 <ThreeScene imageSrc={`${logo}`} />
+               </Canvas>
+             </Box>
+           )
+         )}
+                   </Grid>
+                   ) : (
+                   <Text>Loading in desktop</Text>
+                   )}
+           </Box>
+       </>
     );
   };
 
-
-
-
-const Skills = () => {
-
-    return (
-        <>
-         <Box bgGradient='linear(to-b, #222222, #802a5e)' p={{ base: '50px', md:'20px' }} mt='50px'>
-            <Text fontSize='4xl' textColor='white' textAlign='center' fontWeight='bold' fontStyle='italic'>Skills</Text>
-            {htmllogo ? (
-                    <Grid w='100%' templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(5, 1fr)' }}>
-                        {[htmllogo, csslogo, javascriptlogo, typescriptlogo, javalogo, reactlogo, nodelogo, kotlinlogo, chakrauilogo, mysqllogo].map(
-                        (logo, index) => (
-                            <Box key={index} boxSize='100px' margin='auto'>
-                            <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
-                                <ThreeScene imageSrc={`${logo}`} />
-                            </Canvas>
-                            </Box>
-                        )
-                        )}
-                    </Grid>
-                    ) : (
-                    <Text>Loading in desktop</Text>
-            )}
-            </Box>
-            <Image src={htmllogo} />
-            <Image src={csslogo} />
-        </>
-    )
-}
-
 export default Skills;
+
