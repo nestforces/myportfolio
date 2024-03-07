@@ -14,34 +14,30 @@ import typescriptlogo from '../assets/typescript.png';
 import * as THREE from 'three';
 import { Canvas, useFrame, extend, useThree } from '@react-three/fiber';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { useRef, useEffect, } from 'react';
+import { useRef } from 'react';
 
 
 extend({ OrbitControls });
 
-  const BallWithImage = ({ imageSrc }) => {
+
+
+const BallWithImage = ({ imageSrc }) => {
     const textureLoader = new THREE.TextureLoader();
-    const texture = useRef(null);
+    const texture = textureLoader.load(imageSrc);
     const meshRef = useRef();
-  
+
     const pointLight = new THREE.PointLight(0xffffff, 1, 100);
     pointLight.position.set(0, 0, 50);
-  
-    useEffect(() => {
-      textureLoader.load(imageSrc, (loadedTexture) => {
-        texture.current = loadedTexture;
-      });
-    }, [imageSrc]);
-  
+
     useFrame(() => {
-      // Rotate the ball around the y-axis
-      meshRef.current.rotation.y += 0.01;
+        // Rotate the ball around the y-axis
+        meshRef.current.rotation.y += 0.01;
     });
   
     return (
-      <mesh ref={meshRef}>
+        <mesh ref={meshRef}>
         <sphereGeometry args={[50, 32, 32]} />
-        <meshBasicMaterial attach="material" map={texture.current} />
+        <meshBasicMaterial attach="material" map={texture}/>
         {/* Adjust the position of the mesh to be in front of the ball */}
         <pointLight args={[pointLight.color.getStyle(), pointLight.intensity, pointLight.distance]} />
       </mesh>
