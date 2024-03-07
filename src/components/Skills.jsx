@@ -9,7 +9,8 @@ import kotlinlogo from '../assets/kotlin.png';
 import mysqllogo from '../assets/mysql.png';
 import reactlogo from '../assets/react.png';
 import typescriptlogo from '../assets/typescript.png';
-
+import homemacgroceria from '../assets/Macbook-Air-localhost (3).png';
+import productmacgroceria from '../assets/Macbook-Air-localhost (2).png';
 
 import * as THREE from 'three';
 import { Canvas, useFrame, extend, useThree } from '@react-three/fiber';
@@ -62,6 +63,16 @@ const SphereWithImage = ({ imageSrc }) => {
            <Text fontSize='4xl' textColor='white' textAlign='center' fontWeight='bold' fontStyle='italic'>Skills</Text>
            {htmllogo ? (
                    <Grid w='100%' templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(5, 1fr)' }}>
+                       <Box zIndex={-99} position='fixed' boxSize='100px' margin='auto'>
+               <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
+                 <ThreeScene imageSrc={homemacgroceria} />
+               </Canvas>
+             </Box>
+             <Box zIndex={-99} position='fixed' boxSize='100px' margin='auto'>
+               <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
+                 <ThreeScene imageSrc={productmacgroceria} />
+               </Canvas>
+             </Box>
                        {[htmllogo, csslogo, javascriptlogo, typescriptlogo, javalogo, reactlogo, nodelogo, kotlinlogo, chakrauilogo, mysqllogo].map(
            (logo, index) => (
              <Box key={index} boxSize='100px' margin='auto'>
