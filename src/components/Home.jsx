@@ -25,8 +25,8 @@ const Home = () => {
                 </Box>
                 <Box width={{base: '100%', md:'50%'}}>
                     <VStack>
-                    <Box p='50px' bgColor='#181818' width='fit-content' borderRadius='full'>
-                    <Image boxSize={{base: '200px', md:'300px'}} borderRadius='full' src={computerjpg2} alt="Computer Image" />
+                    <Box p='50px' filter='drop-shadow(0 0 20px rgba(142, 16, 80, 0.5))' bgColor='#181818' width='fit-content' borderRadius='full'>
+                    <Image filter='drop-shadow(0 0 20px rgba(142, 16, 80, 0.5))' boxSize={{base: '200px', md:'300px'}} borderRadius='full' src={computerjpg2} alt="Computer Image" />
                     </Box>
                     </VStack>
                 </Box>

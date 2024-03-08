@@ -44,6 +44,22 @@ import gitlogo from '../assets/git.png';
         'Java', 'React', 'Node', 'Kotlin', 'Chakra UI', 'MySQL', 'Sequelize', 'Prisma', 'Git'
     ];
 
+    const skillColors = {
+        HTML: 'orange',
+        CSS: 'blue',
+        Javascript: 'yellow',
+        Typescript: 'cyan',
+        Java: '#df9338',
+        React: 'teal',
+        Node: 'lime',
+        Kotlin: '#f4860f',
+        'Chakra UI': '#57c8c7',
+        MySQL: '#3765af',
+        Sequelize: '#03afef',
+        Prisma: '#139983',
+        Git: '#f05030',
+    };
+
   
   const SkillsCard = () => {
     return (
@@ -53,7 +69,7 @@ import gitlogo from '../assets/git.png';
            <Grid w='100%' rowGap='30px' templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(5, 1fr)' }}>
                 {logos.map((logo, index) => (
                     <Box key={index} boxSize='100px' margin='auto'>
-                        <Image src={logo} borderRadius='full' objectFit='cover' boxSize='100px' animation={`${rotateY} 10s linear infinite`} transform={`rotateY(${index * (360 / logos.length)}deg) translateZ(120px)`} />
+                        <Image filter={`drop-shadow(0 0 5px ${skillColors[names[index]] || 'rgba(255, 255, 255, 0.5)'})`} src={logo} borderRadius='full' objectFit='cover' boxSize='100px' animation={`${rotateY} 10s linear infinite`} transform={`rotateY(${index * (360 / logos.length)}deg) translateZ(120px)`} />
                         <Text textAlign='center' textColor='white'>{names[index]}</Text>
                     </Box>
                 ))}

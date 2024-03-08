@@ -28,7 +28,7 @@ const SphereWithImage = ({ imageSrc }) => {
   
     useFrame(() => {
       // Rotate the ball around the y-axis
-      meshRef.current.rotation.y += 0.01;
+      meshRef.current.rotation.y += 0.02;
     });
   
     return (
