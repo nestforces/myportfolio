@@ -16,12 +16,14 @@ const AboutMe = () => {
                     <Text fontSize='4xl' textColor='white' fontWeight='bold' fontStyle='italic'>About Me</Text>
                     <Text lineHeight={2} color='white'>
                     I am a software developer eager to learn and grow in the field. 
-                    My current skills include working with JavaScript, HTML, CSS, Typescript, Kotlin, and Java, 
-                    as well as managing databases with MySQL. I am familiar with version control using Git and GitHub. 
-                    In terms of frameworks, I have hands-on experience with React.js, React.ts, Node.js, Express.js, 
-                    and Chakra UI for building user interfaces. Despite being a beginner, 
-                    I am enthusiastic about honing my abilities and have a keen interest in creating responsive and
-                     dynamic web applications.
+                    My current skills include working with JavaScript, HTML, CSS, TypeScript, Kotlin, 
+                    and Java, as well as managing databases with MySQL. I am familiar with version 
+                    control using Git and GitHub. In terms of frameworks, I have hands-on 
+                    experience with React.js, React.ts, Node.js, Express.js, and Chakra UI 
+                    for building user interfaces. Additionally, I have proficiency in ORM 
+                    (Object-Relational Mapping) libraries like Prisma and Sequelize for database management. 
+                    Despite being a beginner, I am enthusiastic about honing my abilities and have a 
+                    keen interest in creating responsive and dynamic web applications.
                     </Text>
                 </Box>
             </Flex>

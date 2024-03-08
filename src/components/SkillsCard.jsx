@@ -9,27 +9,30 @@ import kotlinlogo from '../assets/kotlin.png';
 import mysqllogo from '../assets/mysql.png';
 import reactlogo from '../assets/react.png';
 import typescriptlogo from '../assets/typescript.png';
+import sequelizelogo from '../assets/sequelize.png';
+import prismalogo from '../assets/prisma.png';
+import gitlogo from '../assets/git.png';
 
-const rotateY = keyframes`
-from {
-  transform: rotateY(0deg);
-}
+    const rotateY = keyframes`
+    from {
+    transform: rotateY(0deg);
+    }
 
-to {
-  transform: rotateY(360deg);
-}
-`;
+    to {
+    transform: rotateY(360deg);
+    }
+    `;
 
-const logos = [
-    htmllogo, csslogo, javascriptlogo, typescriptlogo, 
-    javalogo, reactlogo, nodelogo, kotlinlogo, 
-    chakrauilogo, mysqllogo
-  ];
+    const logos = [
+        htmllogo, csslogo, javascriptlogo, typescriptlogo, 
+        javalogo, reactlogo, nodelogo, kotlinlogo, 
+        chakrauilogo, mysqllogo, sequelizelogo, prismalogo, gitlogo,
+    ];
   
-  const names = [
-    'HTML', 'CSS', 'Javascript', 'Typescript', 
-    'Java', 'React', 'Node', 'Kotlin', 'Chakra UI', 'MySql'
-  ];
+    const names = [
+        'HTML', 'CSS', 'Javascript', 'Typescript', 
+        'Java', 'React', 'Node', 'Kotlin', 'Chakra UI', 'MySQL', 'Sequelize', 'Prisma', 'Git'
+    ];
 
   
   const SkillsCard = () => {

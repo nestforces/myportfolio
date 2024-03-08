@@ -9,7 +9,9 @@ import kotlinlogo from '../assets/kotlin.png';
 import mysqllogo from '../assets/mysql.png';
 import reactlogo from '../assets/react.png';
 import typescriptlogo from '../assets/typescript.png';
-
+import sequelizelogo from '../assets/sequelize.png';
+import prismalogo from '../assets/prisma.png';
+import gitlogo from '../assets/git.png';
 
 import * as THREE from 'three';
 import { Canvas, useFrame, extend, useThree } from '@react-three/fiber';
@@ -58,12 +60,12 @@ const SphereWithImage = ({ imageSrc }) => {
   const logos = [
     htmllogo, csslogo, javascriptlogo, typescriptlogo, 
     javalogo, reactlogo, nodelogo, kotlinlogo, 
-    chakrauilogo, mysqllogo
+    chakrauilogo, mysqllogo, sequelizelogo, prismalogo, gitlogo,
   ];
   
   const names = [
     'HTML', 'CSS', 'Javascript', 'Typescript', 
-    'Java', 'React', 'Node', 'Kotlin', 'Chakra UI', 'MySql'
+    'Java', 'React', 'Node', 'Kotlin', 'Chakra UI', 'MySQL', 'Sequelize', 'Prisma', 'Git'
   ];
   
   const Skills = () => {
