@@ -67,6 +67,22 @@ const SphereWithImage = ({ imageSrc }) => {
     'HTML', 'CSS', 'Javascript', 'Typescript', 
     'Java', 'React', 'Node', 'Kotlin', 'Chakra UI', 'MySQL', 'Sequelize', 'Prisma', 'Git'
   ];
+
+    const skillColors = {
+        HTML: 'orange',
+        CSS: 'blue',
+        Javascript: 'yellow',
+        Typescript: 'cyan',
+        Java: '#df9338',
+        React: 'teal',
+        Node: 'lime',
+        Kotlin: '#f4860f',
+        'Chakra UI': '#57c8c7',
+        MySQL: '#3765af',
+        Sequelize: '#03afef',
+        Prisma: '#139983',
+        Git: '#f05030',
+    };
   
   const Skills = () => {
     return (
@@ -75,7 +91,7 @@ const SphereWithImage = ({ imageSrc }) => {
            <Text fontSize='4xl' textColor='white' textAlign='center' fontWeight='bold' fontStyle='italic'>Skills</Text>
            <Grid mb='30px' w='100%' rowGap='30px' templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(5, 1fr)' }}>
                 {logos.map((logo, index) => (
-                    <Box key={index} boxSize='100px' margin='auto'>
+                    <Box filter={`drop-shadow(0 0 5px ${skillColors[names[index]] || 'rgba(255, 255, 255, 0.5)'})`} key={index} boxSize='100px' margin='auto'>
                         <Canvas camera={{ position: [0, 0, 100], fov: 75 }}>
                             <ThreeScene imageSrc={`${logo}`} />
                         </Canvas>
