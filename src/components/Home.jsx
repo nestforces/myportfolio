@@ -2,7 +2,6 @@ import { Box, Flex, Text, Image, VStack, Button, } from "@chakra-ui/react";
 import computerjpg2 from '../assets/image.jpg';
 import computerjpg3 from '../assets/image2.jpg';
 
-
 const Home = () => {
 
 
