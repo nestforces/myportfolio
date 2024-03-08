@@ -68,8 +68,8 @@ import gitlogo from '../assets/git.png';
            <Text fontSize='4xl' textColor='white' textAlign='center' fontWeight='bold' fontStyle='italic'>Skills</Text>
            <Grid w='100%' rowGap='30px' templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(5, 1fr)' }}>
                 {logos.map((logo, index) => (
-                    <Box key={index} boxSize='100px' margin='auto'>
-                        <Image filter={`drop-shadow(0 0 5px ${skillColors[names[index]] || 'rgba(255, 255, 255, 0.5)'})`} src={logo} borderRadius='full' objectFit='cover' boxSize='100px' animation={`${rotateY} 10s linear infinite`} transform={`rotateY(${index * (360 / logos.length)}deg) translateZ(120px)`} />
+                    <Box filter={`drop-shadow(0 0 5px ${skillColors[names[index]] || 'rgba(255, 255, 255, 0.5)'})`} key={index} boxSize='100px' margin='auto'>
+                        <Image src={logo} borderRadius='full' objectFit='cover' boxSize='100px' animation={`${rotateY} 10s linear infinite`} transform={`rotateY(${index * (360 / logos.length)}deg) translateZ(120px)`} />
                         <Text textAlign='center' textColor='white'>{names[index]}</Text>
                     </Box>
                 ))}
