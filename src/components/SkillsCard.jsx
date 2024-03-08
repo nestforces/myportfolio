@@ -15,11 +15,21 @@ import gitlogo from '../assets/git.png';
 
     const rotateY = keyframes`
     from {
-    transform: rotateY(0deg);
+        transform: rotateY(0deg);
     }
 
     to {
-    transform: rotateY(360deg);
+        transform: rotateY(360deg);
+    }
+    `;
+
+    const scale = keyframes`
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.2);
     }
     `;
 
@@ -43,7 +53,7 @@ import gitlogo from '../assets/git.png';
            <Grid w='100%' rowGap='30px' templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(5, 1fr)' }}>
                 {logos.map((logo, index) => (
                     <Box key={index} boxSize='100px' margin='auto'>
-                        <Image src={logo} borderRadius='full' objectFit='cover' boxSize='100px' animation={`${rotateY} 10s linear infinite`} />
+                        <Image src={logo} borderRadius='full' objectFit='cover' boxSize='100px' animation={`${rotateY} 10s linear infinite`} transform={`rotateY(${index * (360 / logos.length)}deg) translateZ(120px)`} />
                         <Text textAlign='center' textColor='white'>{names[index]}</Text>
                     </Box>
                 ))}
