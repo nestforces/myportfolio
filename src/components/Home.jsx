@@ -4,7 +4,6 @@ import computerjpg3 from '../assets/image2.jpg';
 
 const Home = () => {
 
-
     return (
         <>
         <Box bgImage={computerjpg3} bgSize='cover'>
