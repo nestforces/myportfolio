@@ -16,7 +16,7 @@ const Home = () => {
                     <Button borderRadius='full' onClick={() => window.open("https://github.com/nestforces", "_blank")} bgGradient="linear(to-r, #b686e8, #bc3876)" textColor='white'>
                         <Text _hover={{ textShadow: '0 0 5px #bc3876, 0 0 10px #bc3876, 0 0 15px #bc3876', color: '#bc3876', }}>GitHub</Text>
                     </Button>
-                    <Button borderRadius='full' _hover={{bgColor: '#bc3876'}} variant='outline' colorScheme='blue' borderWidth='3px' fontWeight='bold' backgroundColor='white' onClick={() => window.open("https://drive.google.com/file/d/1ipz5wwYq9xAx3jS969NLd10m-0B93pvf/view?usp=sharing", "_blank")} borderColor="linear(to-r, #b686e8, #bc3876)">
+                    <Button borderRadius='full' _hover={{bgColor: '#bc3876'}} variant='outline' colorScheme='blue' borderWidth='3px' fontWeight='bold' backgroundColor='white' onClick={() => window.open("https://drive.google.com/file/d/1r64Qq_ZLmzqJRDlKAs3yM8ewm4_MhOQX/view?usp=sharing", "_blank")} borderColor="linear(to-r, #b686e8, #bc3876)">
                         <Text textColor='#bc3876' _hover={{ textShadow: '0 0 5px white, 0 0 10px white, 0 0 15px white', color: 'white', }}>Download CV</Text>
                     </Button>
                     </Flex>
