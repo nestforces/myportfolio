@@ -1,13 +1,20 @@
 import { Box, Flex, Text, Image, Button, Grid, Modal, ModalOverlay, ModalContent, ModalBody, ModalCloseButton, ModalHeader, Textarea, Input, HStack, Spacer, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerHeader, DrawerBody, } from "@chakra-ui/react";
-import { useRef , useState} from 'react';
+import { useRef , useState, lazy, Suspense } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { IconBrandLinkedin, IconMailFilled, IconBrandGithubFilled, IconPhoneFilled, IconMenu2 } from '@tabler/icons-react';
-import Home from "../../components/Home";
-import AboutMe from "../../components/AboutMe";
-import Skills from "../../components/Skills";
-import Projects from "../../components/Projects";
-import ContactMe from "../../components/ContactMe";
-import SkillsCard from "../../components/SkillsCard";
+// import Home from "../../components/Home";
+// import AboutMe from "../../components/AboutMe";
+// import Skills from "../../components/Skills";
+// import Projects from "../../components/Projects";
+// import ContactMe from "../../components/ContactMe";
+// import SkillsCard from "../../components/SkillsCard";
+
+const Home = lazy(() => import("../../components/Home"));
+const AboutMe = lazy(() => import("../../components/AboutMe"));
+const Skills = lazy(() => import("../../components/Skills"));
+const Projects = lazy(() => import("../../components/Projects"));
+const ContactMe = lazy(() => import("../../components/ContactMe"));
+const SkillsCard = lazy(() => import("../../components/SkillsCard"));
 
 const AnimatedSection = ({ children }) => {
   const [ref, inView] = useInView({
@@ -67,16 +74,27 @@ const IndexPortfolio = () => {
         <Box bgColor='#222222' p={{base: '0px', md:'0px', sm:'50px'}}>
         <Box mt='70px' bgColor='#222222'>
             <AnimatedSection>
-            <Box ref={homeRef}><Home /></Box>
+            {/* <Box ref={homeRef}><Home /></Box> */}
+            <Suspense fallback={<div>Loading...</div>}>
+              <Box ref={homeRef}><Home /></Box>
+            </Suspense>
             </AnimatedSection>
             <AnimatedSection>
-            <Box ref={aboutMeRef}><AboutMe /></Box>
-            </AnimatedSection>
+            {/* <Box ref={aboutMeRef}><AboutMe /></Box> */}
+            </AnimatedSection><Suspense fallback={<div>Loading...</div>}>
+              <Box ref={aboutMeRef}><AboutMe /></Box>
+            </Suspense>
             <AnimatedSection>
+            <Suspense fallback={<div>Loading...</div>}>
                <Box ref={skillsRef}><Box display={{base: 'none', md: 'block'}}><Skills /></Box><Box display={{base: 'block', md: 'none'}}><SkillsCard /></Box></Box>
+            </Suspense>
             </AnimatedSection>
-            <Box ref={projectsRef}><Projects /></Box>
-            <Box ref={contactMeRef}><ContactMe /></Box>
+            <Suspense fallback={<div>Loading...</div>}>
+              <Box ref={projectsRef}><Projects /></Box>
+            </Suspense>
+            <Suspense fallback={<div>Loading...</div>}>
+              <Box ref={contactMeRef}><ContactMe /></Box>
+            </Suspense>
             
             
             <Drawer isOpen={isDrawerOpen} placement="left" onClose={() => setIsDrawerOpen(false)}>
