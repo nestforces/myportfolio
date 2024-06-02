@@ -79,7 +79,7 @@ const Index = () => {
             <Text textColor={textColor} fontSize='xl' fontWeight='bold' fontStyle='italic'>My Portfolio</Text>
           </Box>
           <Spacer />
-          {/* <IconButton icon={colorMode === "light" ? <IconMoon /> : <IconSun />} onClick={toggleColorMode} /> */}
+          <IconButton icon={colorMode === "light" ? <IconMoon /> : <IconSun />} onClick={toggleColorMode} />
         </Flex>
       </Box>
       <Flex bg={useColorModeValue('#EEF7FF', '#2D3748')} mt={{ base: '70px', md: '0px' }} alignItems="flex-start" pl={{ base: '0px', md: '20px' }} flexDirection={{ base: 'column', md: 'row' }} h={"full"}>
@@ -152,7 +152,7 @@ const Index = () => {
             </Box>
           </Box>
         </VStack>
-        <Box display={{ base: 'none', md: 'block' }} ml='auto' mr='auto' top={{ base: '0px', md: '110px' }} mt='20px' position='sticky' p='0px 20px 0px 20px' height='fit-content'>
+        <Box display={{ base: 'none', md: 'block' }} top={{ base: '0px', md: '110px' }} mt='20px' position='sticky' p='0px 20px 0px 20px' height='fit-content'>
           <Box width="100%" bg={bgColor} textAlign="left" p={4} rounded="lg" boxShadow="0px 1px 5px gray">
             <VStack>
               <VStack onClick={() => setMainDisplay('about')} cursor='pointer' textColor={mainDisplay == "about" ? 'white' : 'black'} _hover={{ bg: '#4D869C', textColor: 'white' }} width='100px' p='5px' bg={mainDisplay == "about" ? '#4D869C' : '#CDE8E5'} borderRadius='10px'>
