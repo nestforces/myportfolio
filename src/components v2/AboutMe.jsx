@@ -49,7 +49,7 @@ const AboutMe = () => {
 
                 <Text color={textColor} mt='30px' fontSize='xl'>What I Do</Text>
                 <Grid gap='10px' templateColumns={{ md: 'repeat(2, 1fr)', base: 'repeat(1, 1fr)' }}>
-                    <AnimatedSection from="left">
+                    {/* <AnimatedSection from="left"> */}
                         <Flex flexDir='row' p='20px' borderRadius='10px' bg='#badcfe'>
                             <Box width='20%' >
                                 <Text color='#1c2c4c' mt='10px' fontSize={{base: '5xl', md: '3xl'}}><FaReact /></Text>
@@ -61,8 +61,8 @@ const AboutMe = () => {
                                 </Text>
                             </Box>
                         </Flex>
-                    </AnimatedSection>
-                    <AnimatedSection from="right">
+                    {/* </AnimatedSection> */}
+                    {/* <AnimatedSection from="right"> */}
                         <Flex flexDir='row' p='20px' borderRadius='10px' bg='#dee0eb'>
                             <Box width='20%'>
                                 <Text color='#6cc24a' mt='10px' fontSize={{base: '5xl', md: '3xl'}}><FaNode /></Text>
@@ -74,8 +74,8 @@ const AboutMe = () => {
                                 </Text>
                             </Box>
                         </Flex>
-                    </AnimatedSection>
-                    <AnimatedSection from="left">
+                    {/* </AnimatedSection> */}
+                    {/* <AnimatedSection from="left"> */}
                         <Flex flexDir='row' p='20px' borderRadius='10px' bg='#ebe2e5'>
                             <Box width='20%'>
                                 <Text color='#78c257' mt='10px' fontSize={{base: '5xl', md: '3xl'}}><IoLogoAndroid /></Text>
@@ -87,7 +87,7 @@ const AboutMe = () => {
                                 </Text>
                             </Box>
                         </Flex>
-                    </AnimatedSection>
+                    {/* </AnimatedSection> */}
                 </Grid>
             </Box>
         </>
