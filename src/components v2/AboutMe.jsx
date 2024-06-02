@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Flex, Text, HStack, Grid, useColorModeValue } from "@chakra-ui/react";
+import { Box, Flex, Text, HStack, Grid, useColorModeValue, useBreakpointValue } from "@chakra-ui/react";
 import { IoLogoAndroid } from "react-icons/io";
 import { FaReact, FaNode } from "react-icons/fa";
 import { motion } from 'framer-motion';
@@ -12,8 +12,8 @@ const AnimatedSection = ({ children, from }) => {
     });
 
     const variants = {
-        hidden: { opacity: 0, x: from === 'left' ? -100 : 100 },
-        visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
+        hidden: { opacity: 0, x: from === 'left' ? -100 : from === 'right' ? 100 : 0, y: from === 'top' ? -100 : from === 'bottom' ? 100 : 0 },
+        visible: { opacity: 1, x: 0, y: 0, transition: { duration: 0.5 } },
     };
 
     return (
@@ -31,25 +31,26 @@ const AnimatedSection = ({ children, from }) => {
 const AboutMe = () => {
     const bgColor = useColorModeValue("#FFFEF7", "#1A202C");
     const textColor = useColorModeValue("black", "white");
+    const isMobile = useBreakpointValue({ base: true, md: false });
 
     return (
         <>
             <Box textColor='black' margin='auto' pl='30px' pr='30px'>
-                <AnimatedSection from="right">
+                <AnimatedSection from={'right'}>
                     <HStack>
                         <Text color={textColor} fontSize='3xl' fontWeight='bold' fontStyle='italic'>About Me</Text>
                         <Box width='50px' mt='20px' borderTop='solid 2px blue'></Box>
                     </HStack>
                 </AnimatedSection>
-                <AnimatedSection from="left">
+                <AnimatedSection from={'left'}>
                     <Text color={textColor} lineHeight={2} fontSize='small' textAlign='justify'>
                         I am a software developer eager to learn and grow in the field. My current skills include JavaScript, HTML, CSS, TypeScript, Kotlin, and Java, as well as database management with MySQL. I am proficient in version control using Git and GitHub. In terms of frameworks, I have hands-on experience with both frontend and backend development using React, Node.js, Express.js, and Chakra UI for building user interfaces. Additionally, I have proficiency with ORM (Object-Relational Mapping) libraries like Prisma and Sequelize for database management. I am enthusiastic about honing my abilities and have a keen interest in creating responsive and dynamic web applications.
                     </Text>
                 </AnimatedSection>
 
                 <Text color={textColor} mt='30px' fontSize='xl'>What I Do</Text>
-                <Grid gap='10px' templateColumns={{ md: 'repeat(2, 1fr)', base: 'repeat(1, 1fr)' }}>
-                    {/* <AnimatedSection from="left"> */}
+                <Grid gap='10px' templateColumns={{ md: 'repeat(2, 1fr)', base: 'repeat(1, 1fr)' }} width='100%'>
+                    <AnimatedSection from={'left'}>
                         <Flex flexDir='row' p='20px' borderRadius='10px' bg='#badcfe'>
                             <Box width='20%' >
                                 <Text color='#1c2c4c' mt='10px' fontSize={{base: '5xl', md: '3xl'}}><FaReact /></Text>
@@ -61,8 +62,8 @@ const AboutMe = () => {
                                 </Text>
                             </Box>
                         </Flex>
-                    {/* </AnimatedSection> */}
-                    {/* <AnimatedSection from="right"> */}
+                    </AnimatedSection>
+                    <AnimatedSection from={isMobile ? 'bottom' : 'right'}>
                         <Flex flexDir='row' p='20px' borderRadius='10px' bg='#dee0eb'>
                             <Box width='20%'>
                                 <Text color='#6cc24a' mt='10px' fontSize={{base: '5xl', md: '3xl'}}><FaNode /></Text>
@@ -74,8 +75,8 @@ const AboutMe = () => {
                                 </Text>
                             </Box>
                         </Flex>
-                    {/* </AnimatedSection> */}
-                    {/* <AnimatedSection from="left"> */}
+                    </AnimatedSection>
+                    <AnimatedSection from={isMobile ? 'top' : 'left'}>
                         <Flex flexDir='row' p='20px' borderRadius='10px' bg='#ebe2e5'>
                             <Box width='20%'>
                                 <Text color='#78c257' mt='10px' fontSize={{base: '5xl', md: '3xl'}}><IoLogoAndroid /></Text>
@@ -87,7 +88,7 @@ const AboutMe = () => {
                                 </Text>
                             </Box>
                         </Flex>
-                    {/* </AnimatedSection> */}
+                    </AnimatedSection>
                 </Grid>
             </Box>
         </>

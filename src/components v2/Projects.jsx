@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Flex, Text, Image, Grid, useColorModeValue, Modal, ModalOverlay, ModalContent, ModalBody, ModalCloseButton, ModalHeader } from "@chakra-ui/react";
+import { Box, Flex, Text, Image, Grid, useColorModeValue, Modal, ModalOverlay, ModalContent, ModalBody, ModalCloseButton, ModalHeader, useBreakpointValue } from "@chakra-ui/react";
 import { motion } from 'framer-motion';
 import homefragment from '../assets/Home Fragment.jpg';
 import detailmanga from '../assets/Detail Manga.jpg';
@@ -26,8 +26,12 @@ const AnimatedSection = ({ children, from }) => {
     });
 
     const variants = {
-        hidden: { opacity: 0, x: from === 'left' ? -100 : 100 },
-        visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
+        hidden: {
+            opacity: 0,
+            x: from === 'left' ? -100 : from === 'right' ? 100 : 0,
+            y: from === 'top' ? -100 : from === 'bottom' ? 100 : 0,
+        },
+        visible: { opacity: 1, x: 0, y: 0, transition: { duration: 0.5 } },
     };
 
     return (
@@ -47,6 +51,7 @@ const Projects = () => {
     const [selectedImage, setSelectedImage] = useState('');
     const bgColor = useColorModeValue("#FFFEF7", "#1A202C");
     const textColor = useColorModeValue("black", "white");
+    const isMobile = useBreakpointValue({ base: true, md: false });
 
     const handleImageClick = (imageSrc) => {
         setSelectedImage(imageSrc);
@@ -59,17 +64,15 @@ const Projects = () => {
 
     return (
         <>
-                <Flex flexDir='row' ml='20px'>
-                    <Text fontSize='3xl' textColor={textColor} fontWeight='bold' fontStyle='italic'>Projects</Text>
-                    <Box width='50px' mt='30px' borderTop='solid 2px blue'></Box>
-                </Flex>
+            <Flex flexDir='row' ml='20px'>
+                <Text fontSize='3xl' textColor={textColor} fontWeight='bold' fontStyle='italic'>Projects</Text>
+                <Box width='50px' mt='30px' borderTop='solid 2px blue'></Box>
+            </Flex>
             <Box p='20px' textColor='black'>
-                
-
                 <Grid gap='10px' templateColumns={{ md: 'repeat(2, 1fr)', base: 'repeat(1, 1fr)' }} width='100%'>
-                    <AnimatedSection from="left">
+                    <AnimatedSection from={isMobile ? "top" : "left"}>
                         <Flex flexDir='column' p='10px' borderRadius='10px' bg='#C2F3D3'>
-                            <Image src={homemacgroceria} />
+                            <Image src={homemacgroceria} onClick={() => handleImageClick(homemacgroceria)} />
                             <Box p='10px'>
                                 <Text mt='10px' fontWeight='bold'>Groceria</Text>
                                 <Text fontSize='small' textAlign='justify'>
@@ -78,9 +81,9 @@ const Projects = () => {
                             </Box>
                         </Flex>
                     </AnimatedSection>
-                    <AnimatedSection from="right">
+                    <AnimatedSection from={isMobile ? "bottom" : "right"}>
                         <Flex flexDir='column' p='10px' borderRadius='10px' bg='#DDECEF'>
-                            <Image src={menumacpos} />
+                            <Image src={menumacpos} onClick={() => handleImageClick(menumacpos)} />
                             <Box p='10px'>
                                 <Text mt='10px' fontWeight='bold'>POS Coffee Shop</Text>
                                 <Text fontSize='small' textAlign='justify'>
@@ -89,9 +92,9 @@ const Projects = () => {
                             </Box>
                         </Flex>
                     </AnimatedSection>
-                    <AnimatedSection from="left">
+                    <AnimatedSection from={isMobile ? "top" : "left"}>
                         <Flex flexDir='column' p='10px' borderRadius='10px' bg='#A0E7E5'>
-                            <Image src={homemacticketing} />
+                            <Image src={homemacticketing} onClick={() => handleImageClick(homemacticketing)} />
                             <Box p='10px'>
                                 <Text mt='10px' fontWeight='bold'>Ticketing</Text>
                                 <Text fontSize='small' textAlign='justify'>
@@ -100,9 +103,9 @@ const Projects = () => {
                             </Box>
                         </Flex>
                     </AnimatedSection>
-                    <AnimatedSection from="right">
+                    <AnimatedSection from={isMobile ? "bottom" : "right"}>
                         <Flex flexDir='column' p='10px' borderRadius='10px' bg='#EFF1D9'>
-                            <Image height='140px' ml='auto' mr='auto' borderRadius='10px' width='70px' src={homefragment} />
+                            <Image height='140px' ml='auto' mr='auto' borderRadius='10px' width='70px' src={homefragment} onClick={() => handleImageClick(homefragment)} />
                             <Box p='10px'>
                                 <Text mt='10px' fontWeight='bold'>Comicku</Text>
                                 <Text fontSize='small' textAlign='justify'>
@@ -111,9 +114,9 @@ const Projects = () => {
                             </Box>
                         </Flex>
                     </AnimatedSection>
-                    <AnimatedSection from="left">
+                    <AnimatedSection from={isMobile ? "top" : "left"}>
                         <Flex flexDir='column' p='10px' borderRadius='10px' bg='#F1EB86'>
-                            <Image src={homemacjikanime} />
+                            <Image src={homemacjikanime} onClick={() => handleImageClick(homemacjikanime)} />
                             <Box p='10px'>
                                 <Text mt='10px' fontWeight='bold'>Jikanime</Text>
                                 <Text fontSize='small' textAlign='justify'>
