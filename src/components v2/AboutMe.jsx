@@ -48,7 +48,7 @@ const AboutMe = () => {
                 </AnimatedSection>
 
                 <Text color={textColor} mt='30px' fontSize='xl'>What I Do</Text>
-                <Grid gap='10px' templateColumns={{ md: 'repeat(2, 1fr)', base: 'repeat(1, 1fr)' }} width='70%'>
+                <Grid gap='10px' templateColumns={{ md: 'repeat(2, 1fr)', base: 'repeat(1, 1fr)' }}>
                     <AnimatedSection from="left">
                         <Flex flexDir='row' p='20px' borderRadius='10px' bg='#badcfe'>
                             <Box width='20%' >
