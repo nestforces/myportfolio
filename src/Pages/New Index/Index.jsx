@@ -78,7 +78,8 @@ const Index = () => {
           <Box>
             <Text textColor={textColor} fontSize='xl' fontWeight='bold' fontStyle='italic'>My Portfolio</Text>
           </Box>
-          <IconButton ml={'auto'} icon={colorMode === "light" ? <IconMoon /> : <IconSun />} onClick={toggleColorMode} />
+          <Spacer />
+          <IconButton icon={colorMode === "light" ? <IconMoon /> : <IconSun />} onClick={toggleColorMode} />
         </Flex>
       </Box>
       <Flex bg={useColorModeValue('#EEF7FF', '#2D3748')} mt={{ base: '70px', md: '0px' }} alignItems="flex-start" pl={{ base: '0px', md: '20px' }} flexDirection={{ base: 'column', md: 'row' }} h={"full"}>
