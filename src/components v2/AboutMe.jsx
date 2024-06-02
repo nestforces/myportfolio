@@ -47,7 +47,6 @@ const AboutMe = () => {
                         I am a software developer eager to learn and grow in the field. My current skills include JavaScript, HTML, CSS, TypeScript, Kotlin, and Java, as well as database management with MySQL. I am proficient in version control using Git and GitHub. In terms of frameworks, I have hands-on experience with both frontend and backend development using React, Node.js, Express.js, and Chakra UI for building user interfaces. Additionally, I have proficiency with ORM (Object-Relational Mapping) libraries like Prisma and Sequelize for database management. I am enthusiastic about honing my abilities and have a keen interest in creating responsive and dynamic web applications.
                     </Text>
                 </AnimatedSection>
-
                 <Text color={textColor} mt='30px' fontSize='xl'>What I Do</Text>
                 <Grid gap='10px' templateColumns={{ md: 'repeat(2, 1fr)', base: 'repeat(1, 1fr)' }} width='100%'>
                     <AnimatedSection from={'left'}>
