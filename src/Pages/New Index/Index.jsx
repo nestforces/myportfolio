@@ -89,7 +89,7 @@ const Index = () => {
       <VStack height='100px' mt='20px' width={{base : '100%', md : '30vw'}} position={{base : 'relative', md : 'sticky'}} top={{base : '0px', md : '50px'}} >
         <Image width='200px' borderRadius='10px' ml='auto' mr ='auto' mb='-120px' zIndex={99} src={computerjpg2} />
     
-    <Box bg="#FFFEF7" borderRadius='10px' width={{base : '80%', md : '30vw'}} justifyContent='center'>
+    <Box bg="#FFFEF7" boxShadow="0px 1px 5px gray" borderRadius='10px' width={{base : '80%', md : '30vw'}} justifyContent='center'>
         
         <VStack mt='110px' mb='10px'>
 
