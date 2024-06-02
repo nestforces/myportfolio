@@ -74,12 +74,11 @@ const Index = () => {
     <>
       <Box display={{ base: 'block', md: 'none' }} top={0} position='fixed' width='full' zIndex={999} bgColor={bgColor}>
         <Flex pt='20px' pb='20px' pl='50px' pr='50px' flexDirection='row'>
-          <Box onClick={() => setIsDrawerOpen(true)} color={textColor} cursor='pointer' ml='-30px' mr='10px' display={{ base: 'block', md: 'none' }}><IconMenu2 /></Box>
+          <Box onClick={() => setIsDrawerOpen(true)} marginTop='5px' color={textColor} cursor='pointer' ml='-30px' mr='10px' display={{ base: 'block', md: 'none' }}><IconMenu2 /></Box>
           <Box>
             <Text textColor={textColor} fontSize='xl' fontWeight='bold' fontStyle='italic'>My Portfolio</Text>
           </Box>
-          <Spacer display={{ base: 'none', md: 'block' }} />
-          <IconButton icon={colorMode === "light" ? <IconMoon /> : <IconSun />} onClick={toggleColorMode} />
+          <IconButton ml={'auto'} icon={colorMode === "light" ? <IconMoon /> : <IconSun />} onClick={toggleColorMode} />
         </Flex>
       </Box>
       <Flex bg={useColorModeValue('#EEF7FF', '#2D3748')} mt={{ base: '70px', md: '0px' }} alignItems="flex-start" pl={{ base: '0px', md: '20px' }} flexDirection={{ base: 'column', md: 'row' }} h={"full"}>
@@ -179,7 +178,7 @@ const Index = () => {
       </Flex>
       <Drawer isOpen={isDrawerOpen} placement="left" onClose={() => setIsDrawerOpen(false)}>
         <DrawerOverlay>
-          <DrawerContent bgColor={useColorModeValue('#444444', '#1A202C')} color={textColor}>
+          <DrawerContent bgColor={useColorModeValue('#444444', '#1A202C')} color={'white'}>
             <DrawerCloseButton color='white' />
             <DrawerHeader bgColor={useColorModeValue('#222222', '#2D3748')} fontWeight='bold'>Navigation</DrawerHeader>
             <DrawerBody>
