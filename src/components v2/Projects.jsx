@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Flex, Text, Image, Grid, HStack, Modal, ModalOverlay, ModalContent, ModalBody, ModalCloseButton, ModalHeader } from "@chakra-ui/react";
+import { Box, Flex, Text, Image, Grid, useColorModeValue, Modal, ModalOverlay, ModalContent, ModalBody, ModalCloseButton, ModalHeader } from "@chakra-ui/react";
 import { motion } from 'framer-motion';
 import homefragment from '../assets/Home Fragment.jpg';
 import detailmanga from '../assets/Detail Manga.jpg';
@@ -45,6 +45,8 @@ const AnimatedSection = ({ children, from }) => {
 const Projects = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedImage, setSelectedImage] = useState('');
+    const bgColor = useColorModeValue("#FFFEF7", "#1A202C");
+    const textColor = useColorModeValue("black", "white");
 
     const handleImageClick = (imageSrc) => {
         setSelectedImage(imageSrc);
@@ -58,7 +60,7 @@ const Projects = () => {
     return (
         <>
                 <Flex flexDir='row' ml='20px'>
-                    <Text fontSize='3xl' textColor='black' fontWeight='bold' fontStyle='italic'>Projects</Text>
+                    <Text fontSize='3xl' textColor={textColor} fontWeight='bold' fontStyle='italic'>Projects</Text>
                     <Box width='50px' mt='30px' borderTop='solid 2px blue'></Box>
                 </Flex>
             <Box p='20px' textColor='black'>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Flex, Text, Button, Grid, Textarea, Input, HStack } from "@chakra-ui/react";
+import { Box, Flex, Text, Button, useColorModeValue, Textarea, Input, } from "@chakra-ui/react";
 import { IconBrandLinkedin, IconMailFilled, IconBrandGithubFilled, IconPhoneFilled } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
 
@@ -25,6 +25,9 @@ const ContactMe = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+    const bgColor = useColorModeValue("#FFFEF7", "#1A202C");
+    const textColor = useColorModeValue("black", "white");
+    const bgComponents = useColorModeValue("aliceblue", "#344C64");
 
     const handleSubmitContactMe = () => {
         const subject = 'Message from Portfolio';
@@ -45,20 +48,20 @@ const ContactMe = () => {
     return (
         <>
         <Flex flexDir='row' ml='20px'>
-                    <Text fontSize='3xl' textColor='black' fontWeight='bold' fontStyle='italic'>Contact Me</Text>
+                    <Text fontSize='3xl' textColor={textColor} fontWeight='bold' fontStyle='italic'>Contact Me</Text>
                     <Box width='50px' mt='30px' borderTop='solid 2px blue'></Box>
                 </Flex>
         <Box p='20px'>
             
             <AnimatedSection from="right">
-            <Text textColor='black' fontSize='small'>
+            <Text textColor={textColor} fontSize='small'>
                 I'm always excited to connect and discuss new opportunities or collaborations. Whether you have a project in mind, a question to ask, or just want to say hello, feel free to reach out. Your message is important to me, and I'll get back to you as soon as possible.
             </Text>
             </AnimatedSection>
-            <Text mt='20px' textColor='black' fontSize='xl' fontWeight='bold'>SAY SOMETHING</Text>
+            <Text mt='20px' textColor={textColor} fontSize='xl' fontWeight='bold'>SAY SOMETHING</Text>
             <Box mt='10px'>
                 <AnimatedSection from="left">
-                    <Box borderRadius='10px' boxShadow='0 4px 8px rgba(142, 16, 80, 0.1), 0 8px 16px rgba(142, 16, 80, 0.1), 0 16px 32px rgba(142, 16, 80, 0.1), 0 32px 64px rgba(142, 16, 80, 0.1)' p={{ base: '20px', md:'50px' }} margin='auto' width={{base: '100%', md: '100%'}} height='fit-content' bgColor='aliceblue'>
+                    <Box borderRadius='10px' boxShadow='0 4px 8px rgba(142, 16, 80, 0.1), 0 8px 16px rgba(142, 16, 80, 0.1), 0 16px 32px rgba(142, 16, 80, 0.1), 0 32px 64px rgba(142, 16, 80, 0.1)' p={{ base: '20px', md:'50px' }} margin='auto' width={{base: '100%', md: '100%'}} height='fit-content' bgColor={bgComponents}>
                         <Input
                             borderBottom='solid 3px #00b4d8'
                             borderRadius='0px'

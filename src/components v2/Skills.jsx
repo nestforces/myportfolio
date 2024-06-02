@@ -1,4 +1,4 @@
-import { Box, Flex, Text, Image, Button, Grid, keyframes, Modal, ModalOverlay, ModalContent, ModalBody, ModalCloseButton, ModalHeader, Textarea, Input, HStack, Spacer, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerHeader, DrawerBody, } from "@chakra-ui/react";
+import { Box, Flex, Text, Image, Button, Grid, keyframes, useColorModeValue, Modal, ModalOverlay, ModalContent, ModalBody, ModalCloseButton, ModalHeader, Textarea, Input, HStack, Spacer, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerHeader, DrawerBody, } from "@chakra-ui/react";
 import htmllogo from '../assets/html.png';
 import csslogo from '../assets/css.png';
 import javascriptlogo from '../assets/javascript.png';
@@ -151,11 +151,13 @@ const SphereWithImage = ({ imageSrc }) => {
   
   const Skills = () => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
+    const bgColor = useColorModeValue("#FFFEF7", "#1A202C");
+    const textColor = useColorModeValue("black", "white");
 
     return (
         <>
         <Flex flexDir='row' ml='20px'>
-                    <Text fontSize='3xl' textColor='black' fontWeight='bold' fontStyle='italic'>Skills</Text>
+                    <Text fontSize='3xl' color={textColor} fontWeight='bold' fontStyle='italic'>Skills</Text>
                     <Box width='50px' mt='30px' borderTop='solid 2px blue'></Box>
                 </Flex>
         <Box p='20px'>
