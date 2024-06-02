@@ -120,8 +120,8 @@ const Index = () => {
         
         </Flex>\
         <Box p='20px' borderRadius='10px' bgColor='steelblue'>
-            <HStack><Box borderRadius='10px' p='5px' bg='white'><IconMail color='crimson' /></Box><Text>maulanamahfud2113@gmail.com</Text></HStack>
-            <HStack><Box mt='5px' borderRadius='10px' p='5px' bg='white'><IconMapPin color='crimson' /></Box><Text>Central Java, Indonesia</Text></HStack>
+            <HStack><Box borderRadius='10px' p='5px' bg='white'><IconMail color='crimson' /></Box><Text textColor='white'>maulanamahfud2113@gmail.com</Text></HStack>
+            <HStack><Box mt='5px' borderRadius='10px' p='5px' bg='white'><IconMapPin color='crimson' /></Box><Text textColor='white'>Central Java, Indonesia</Text></HStack>
         </Box>
         <Flex flexDirection='row' justifyContent='center' gap='10px'>
                     <Button borderRadius='full' onClick={() => window.open("https://github.com/nestforces", "_blank")} bgGradient="linear(to-r, #b686e8, #bc3876)" textColor='white'>
@@ -203,10 +203,10 @@ const Index = () => {
                             <DrawerHeader bgColor='#222222' fontWeight='bold'>Navigation</DrawerHeader>
                             <DrawerBody>
                                 <Flex textColor='white' flexDirection='column' gap='15px' fontWeight='bold'>
-                                    <Text cursor='pointer' p='5px' _hover={{ borderRadius: '10px', bgColor: '#b686e8' }} bgColor={ activeSection == 'aboutMe' ? '#b686e8' : null } borderRadius={ activeSection == 'aboutMe' ? '10px' : null } onClick={() => { setMainDisplay('about'); setActiveSection("aboutMe") }}>About Me</Text>
-                                    <Text  cursor='pointer' p='5px' _hover={{ borderRadius: '10px', bgColor: '#b686e8' }} bgColor={ activeSection == 'skills' ? '#b686e8' : null } borderRadius={ activeSection == 'skills' ? '10px' : null } onClick={() => { setMainDisplay('skills'); setActiveSection("skills") }}>Skills</Text>
-                                    <Text  cursor='pointer' p='5px' _hover={{ borderRadius: '10px', bgColor: '#b686e8' }} bgColor={ activeSection == 'projects' ? '#b686e8' : null } borderRadius={ activeSection == 'projects' ? '10px' : null } onClick={() => { setMainDisplay('projects'); setActiveSection("projects") }}>Projects</Text>
-                                    <Text  cursor='pointer' p='5px' _hover={{ borderRadius: '10px', bgColor: '#b686e8' }} bgColor={ activeSection == 'contactMe' ? '#b686e8' : null } borderRadius={ activeSection == 'contactMe' ? '10px' : null } onClick={() => { setMainDisplay('contactme'); setActiveSection("contactMe") }}>Contact Me</Text>
+                                    <Text cursor='pointer' p='5px' _hover={{ borderRadius: '10px', bgColor: '#b686e8' }} bgColor={ mainDisplay == 'about' ? '#b686e8' : null } borderRadius={ activeSection == 'aboutMe' ? '10px' : null } onClick={() => { setMainDisplay('about'); setActiveSection("aboutMe") }}>About Me</Text>
+                                    <Text  cursor='pointer' p='5px' _hover={{ borderRadius: '10px', bgColor: '#b686e8' }} bgColor={ mainDisplay == 'skills' ? '#b686e8' : null } borderRadius={ activeSection == 'skills' ? '10px' : null } onClick={() => { setMainDisplay('skills'); setActiveSection("skills") }}>Skills</Text>
+                                    <Text  cursor='pointer' p='5px' _hover={{ borderRadius: '10px', bgColor: '#b686e8' }} bgColor={ mainDisplay == 'projects' ? '#b686e8' : null } borderRadius={ activeSection == 'projects' ? '10px' : null } onClick={() => { setMainDisplay('projects'); setActiveSection("projects") }}>Projects</Text>
+                                    <Text  cursor='pointer' p='5px' _hover={{ borderRadius: '10px', bgColor: '#b686e8' }} bgColor={ mainDisplay == 'contactme' ? '#b686e8' : null } borderRadius={ activeSection == 'contactMe' ? '10px' : null } onClick={() => { setMainDisplay('contactme'); setActiveSection("contactMe") }}>Contact Me</Text>
                                 </Flex>
                             </DrawerBody>
                         </DrawerContent>

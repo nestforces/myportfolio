@@ -76,8 +76,10 @@ const ContactMe = () => {
                             borderRadius='0px'
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            type='text'
-                            textColor='white'
+                            type='email'
+                            isRequired
+                            required
+                            textColor='black'
                             _placeholder={{color: 'gray'}}
                             mb='10px'
                             placeholder='Your Email...'
@@ -89,14 +91,14 @@ const ContactMe = () => {
                             value={message}
                             onChange={(e) => setMessage(e.target.value)}
                             type='text'
-                            textColor='white'
+                            textColor='black'
                             _placeholder={{color: 'gray'}}
                             mb='10px'
                             placeholder='Your Message...'
                         />
                         <Button
                             onClick={handleSubmitContactMe}
-                            isDisabled={name && email && message ? false : true}
+                            isDisabled={name && email && message && /^(?=.*[@])[@]{8,}$/.test(email) == true ? false : true}
                             width='full'
                             bgGradient="linear(to-r, #b686e8, #bc3876)"
                             textColor='white'
