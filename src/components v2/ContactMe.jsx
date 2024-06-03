@@ -73,6 +73,9 @@ const ContactMe = () => {
                             mb='10px'
                             width='full'
                             placeholder='Your Name...'
+                            borderTop='none'
+                            borderLeft='none'
+                            borderRight='none'
                         />
                         <Input
                             borderBottom='solid 3px #00b4d8'
@@ -86,6 +89,9 @@ const ContactMe = () => {
                             _placeholder={{color: 'gray'}}
                             mb='10px'
                             placeholder='Your Email...'
+                            borderTop='none'
+                            borderLeft='none'
+                            borderRight='none'
                         />
                         <Textarea
                             borderBottom='solid 3px #00b4d8'
@@ -98,6 +104,9 @@ const ContactMe = () => {
                             _placeholder={{color: 'gray'}}
                             mb='10px'
                             placeholder='Your Message...'
+                            borderTop='none'
+                            borderLeft='none'
+                            borderRight='none'
                         />
                         <Button
                             onClick={handleSubmitContactMe}

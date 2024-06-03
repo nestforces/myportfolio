@@ -36,7 +36,7 @@ const AboutMe = () => {
     return (
         <>
             <Box textColor='black' margin='auto' pl='30px' pr='30px'>
-                <AnimatedSection from={'right'}>
+                <AnimatedSection from={isMobile ? 'bottom' : 'right'}>
                     <HStack>
                         <Text color={textColor} fontSize='3xl' fontWeight='bold' fontStyle='italic'>About Me</Text>
                         <Box width='50px' mt='20px' borderTop='solid 2px blue'></Box>
